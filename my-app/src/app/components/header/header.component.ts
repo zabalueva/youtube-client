@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor() { }
+  public logo: string;
+
+  constructor() {
+    this.logo = '';
+  }
 }
+
+export { HeaderComponent as default };
