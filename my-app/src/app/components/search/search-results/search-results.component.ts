@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { Component } from '@angular/core';
+import { SearchItem } from 'src/app/models/searchItem.model';
+import { SearchResults } from 'src/app/models/searchResults.model';
 /* import { Page } from 'src/app/models/page.model'; */
 /* import { PageInfo } from 'src/app/models/pageInfo.model'; */
 
@@ -9,7 +11,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  constructor() {
+  searchResult: SearchResults | {};
 
+  searchItems: SearchItem[] | [];
+
+  constructor() {
+    this.searchResult = {};
+    this.searchItems = [];
   }
 }
