@@ -1,1 +1,19 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__search">
+    <img class="header__logo" src={{logo}} alt="logo">
+    <mat-form-field class="header__search-field" appearance="fill">
+      <mat-label>{{this.inputPlaceholder}}</mat-label>
+      <input matInput type="text">
+      <button *ngIf="logo" matSuffix mat-icon-button aria-label="Submit">
+        <mat-icon>submit</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-icon-button aria-label="Filter">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+  <div class="header__login login">
+    <span class="login__name">{{this.userName}}</span>
+    <img class="login__avatar" src={{avatar}} alt="logo">
+  </div>
+</header>
