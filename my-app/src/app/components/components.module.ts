@@ -4,6 +4,7 @@ import { SearchItemComponent } from './search/search-item/search-item.component'
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { HeaderComponent } from './header/header.component';
 import { StatisticsComponent } from './search/statistics/statistics.component';
+import MaterialsModule from '../materials/materials.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,13 @@ import { StatisticsComponent } from './search/statistics/statistics.component';
   ],
   imports: [
     CommonModule,
+    MaterialsModule,
+  ],
+  exports: [
+    SearchItemComponent,
+    SearchResultsComponent,
+    HeaderComponent,
+    StatisticsComponent,
   ],
 })
 export default class ComponentsModule { }
