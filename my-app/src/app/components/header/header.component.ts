@@ -10,18 +10,27 @@ export class HeaderComponent {
 
   public avatar: string;
 
+  public filterButton: string;
+
   public inputPlaceholder: string;
 
   public userName: string = 'Your name';
 
+  public showFilter: boolean = false;
+
   constructor() {
     this.logo = 'assets/images/logo.png';
     this.avatar = 'assets/images/login.png';
+    this.filterButton = 'assets/images/search_settings.png';
     this.inputPlaceholder = 'What are you want to find out?';
   }
 
   getUsername() {
     this.userName = 'Your name';
+  }
+
+  toggleFilter() {
+    this.showFilter = true;
   }
 }
 

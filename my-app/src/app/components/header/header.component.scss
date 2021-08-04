@@ -1,16 +1,25 @@
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
   margin: 0 auto;
-  width: 70vw;
+  height: 4em;
+  width: 80vw;
 }
 
-.header__search {
-  margin: 0 auto;
-  width: 70vw;
+.header__wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40vw;
 }
 
 .header__login {
-  margin: 0 auto;
-  width: 70vw;
+  margin: auto auto;
+}
+
+.header__filterButton {
+  height: 2em;
+  cursor: pointer;
 }

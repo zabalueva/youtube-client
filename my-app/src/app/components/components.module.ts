@@ -5,6 +5,7 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { HeaderComponent } from './header/header.component';
 import { StatisticsComponent } from './search/statistics/statistics.component';
 import MaterialsModule from '../materials/materials.module';
+import { SortingComponent } from './sorting/sorting.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import MaterialsModule from '../materials/materials.module';
     SearchResultsComponent,
     HeaderComponent,
     StatisticsComponent,
+    SortingComponent,
   ],
   imports: [
     CommonModule,
