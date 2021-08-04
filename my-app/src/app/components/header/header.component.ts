@@ -18,6 +18,8 @@ export class HeaderComponent {
 
   public showFilter: boolean = false;
 
+  public searchActive: boolean = false;
+
   constructor() {
     this.logo = 'assets/images/logo.png';
     this.avatar = 'assets/images/login.png';
@@ -31,6 +33,10 @@ export class HeaderComponent {
 
   toggleFilter() {
     this.showFilter = true;
+  }
+
+  toggleSearchResult() {
+    this.searchActive = true;
   }
 }
 
