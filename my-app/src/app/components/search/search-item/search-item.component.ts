@@ -6,7 +6,7 @@ import { SearchItem } from 'src/app/models/searchItem.model';
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
 })
-// eslint-disable-next-line import/prefer-default-export
+
 export class SearchItemComponent {
   item: SearchItem;
 

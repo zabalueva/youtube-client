@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { Component } from '@angular/core';
 import { SearchItem } from 'src/app/models/searchItem.model';
 import { SearchResults } from 'src/app/models/searchResults.model';

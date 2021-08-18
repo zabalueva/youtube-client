@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
+import { PATHS } from 'src/app/shared/paths';
 
+const PLACE_HOLDER = 'What are you want to find out?';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
+
 export class HeaderComponent {
-  public logo: string;
+  public logo: string = PATHS.logoApp;
 
-  public avatar: string;
+  public avatar: string = PATHS.avatarUser;
 
-  public filterButton: string;
+  public filterButton: string = PATHS.filterButtonSettings;
 
-  public inputPlaceholder: string;
+  public inputPlaceholder: string = PLACE_HOLDER;
 
   public userName: string = 'Your name';
 
@@ -22,10 +25,6 @@ export class HeaderComponent {
 
 
   constructor() {
-    this.logo = 'assets/images/logo.png';
-    this.avatar = 'assets/images/login.png';
-    this.filterButton = 'assets/images/search_settings.png';
-    this.inputPlaceholder = 'What are you want to find out?';
   }
 
   getUsername() {
