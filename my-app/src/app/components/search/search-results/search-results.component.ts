@@ -11,12 +11,11 @@ import { SearchResults } from 'src/app/models/searchResults.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  searchResult: SearchResults | {};
+  searchResult: SearchResults;
 
-  searchItems: SearchItem[] | [];
+  searchItems: SearchItem[] = [];
 
   constructor() {
-    this.searchResult = {};
-    this.searchItems = [];
+    this.searchResult = {} as SearchResults;
   }
 }

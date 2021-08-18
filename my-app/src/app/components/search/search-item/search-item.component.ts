@@ -8,9 +8,9 @@ import { SearchItem } from 'src/app/models/searchItem.model';
 })
 // eslint-disable-next-line import/prefer-default-export
 export class SearchItemComponent {
-  item: SearchItem | {} ;
+  item: SearchItem;
 
   constructor() {
-    this.item = {};
+    this.item = {} as SearchItem;
   }
 }
