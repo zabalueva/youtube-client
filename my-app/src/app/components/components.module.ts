@@ -16,4 +16,4 @@ import { StatisticsComponent } from './search/statistics/statistics.component';
     CommonModule,
   ],
 })
-export default class ComponentsModule { }
+export class ComponentsModule { }
