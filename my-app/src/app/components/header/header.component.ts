@@ -32,7 +32,7 @@ export class HeaderComponent {
   }
 
   toggleFilter() {
-    this.showFilter = true;
+    this.showFilter = !this.showFilter;
   }
 
   toggleSearchResult() {
