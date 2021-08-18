@@ -7,10 +7,10 @@ import { Statistics } from 'src/app/models/statistics.model';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent {
-  statisticsList: Statistics | {} ;
+  statisticsList: Statistics;
 
   constructor() {
-    this.statisticsList = {};
+    this.statisticsList = {} as Statistics;
   }
 }
 

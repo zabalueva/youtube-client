@@ -26,4 +26,4 @@ import { SortingComponent } from './sorting/sorting.component';
     StatisticsComponent,
   ],
 })
-export default class ComponentsModule { }
+export class ComponentsModule { }
