@@ -16,9 +16,10 @@ export class HeaderComponent {
 
   public userName: string = 'Your name';
 
-  public showFilter: boolean = false;
+  public showFilter = false;
 
-  public searchActive: boolean = false;
+  public searchActive = false;
+
 
   constructor() {
     this.logo = 'assets/images/logo.png';
