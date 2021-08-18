@@ -35,7 +35,7 @@ export class HeaderComponent {
     this.showFilter = !this.showFilter;
   }
 
-  toggleSearchResult() {
+  showSearchResult() {
     this.searchActive = true;
   }
 }
