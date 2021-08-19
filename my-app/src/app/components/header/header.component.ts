@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ShowResultService } from 'src/app/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 
 const PLACE_HOLDER = 'What are you want to find out?';
@@ -21,10 +23,10 @@ export class HeaderComponent {
 
   public showFilter = false;
 
-  public searchActive = false;
+  public showResult = false;
 
-
-  constructor() {
+  constructor(public showResultService: ShowResultService) {
+    showResultService.showResultS$.subscribe((show) => this.showResult = show);
   }
 
   getUsername() {
@@ -36,7 +38,7 @@ export class HeaderComponent {
   }
 
   showSearchResult() {
-    this.searchActive = true;
+    this.showResultService.showMode();
   }
 }
 
