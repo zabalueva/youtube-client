@@ -1,8 +1,10 @@
 .search-item {
   max-width: 264px;
+  height: 360px;
+  max-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .example-header-image {

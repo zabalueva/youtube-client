@@ -1,5 +1,5 @@
 <mat-card class="search-item">
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Video thumbnail">
+  <img mat-card-image src={{this.searchItem.snippet.thumbnails.medium.url}} alt="Video thumbnail">
   <mat-card-content>
     <app-statistics></app-statistics>
   </mat-card-content>
