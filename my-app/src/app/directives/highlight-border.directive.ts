@@ -1,12 +1,16 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlightBorder]'
+    selector: '[appHighlightBorder]',
 })
 export class HighlightBorderDirective {
+    @Input('appHighlightBorder') colorHighlight = '#8B0000';
 
-  constructor(el: ElementRef) {
-    el.nativeElement.style.borderBottom = 'solid red';
- }
+    constructor(private el: ElementRef) {
+        this.highlight(this.colorHighlight);
+    }
 
+    public highlight(color: string) {
+        this.el.nativeElement.style.borderBottom = `solid ${color}`;
+    }
 }

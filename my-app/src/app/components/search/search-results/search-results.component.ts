@@ -22,13 +22,12 @@ export class SearchResultsComponent {
     showResultService.showResult$.subscribe((show: boolean) => this.showResultFlag = show);
 
     this.http
-    .get("/assets/mockdata.json")
-    //TODO: ask correct type instead any???
-    .pipe(map((data: any) => data))
-    .subscribe((data: SearchResults) => {
-      this.searchResult = data;
-      console.log(this.searchResult);
-    });
+        .get('/assets/mockdata.json')
+        //TODO: ask correct type instead any???
+        .pipe(map((data: any) => data))
+        .subscribe((data: SearchResults) => {
+            this.searchResult = data;
+        });
   }
 
 }

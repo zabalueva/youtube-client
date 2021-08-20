@@ -1,10 +1,10 @@
 .search-item {
   max-width: 264px;
-  height: 397px;
+  height: 400px;
   max-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0 16px 0 16px;
 
   &__title {
@@ -15,4 +15,12 @@
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.timeline-green{
+  border-bottom: solid green;
+}
+
+.timeline-red{
+  border-bottom: solid red;
 }
