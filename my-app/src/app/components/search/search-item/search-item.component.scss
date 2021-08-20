@@ -1,10 +1,15 @@
 .search-item {
   max-width: 264px;
-  height: 360px;
+  height: 397px;
   max-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0 16px 0 16px;
+
+  &__title {
+    text-overflow: ellipsis;
+  }
 }
 
 .example-header-image {

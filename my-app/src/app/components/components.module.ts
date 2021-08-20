@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { StatisticsComponent } from './search/statistics/statistics.component';
 import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './sorting/sorting.component';
+import { HighlightBorderDirective } from '../directives/highlight-border.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SortingComponent } from './sorting/sorting.component';
     HeaderComponent,
     StatisticsComponent,
     SortingComponent,
+    HighlightBorderDirective,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { SortingComponent } from './sorting/sorting.component';
     SearchResultsComponent,
     HeaderComponent,
     StatisticsComponent,
+    HighlightBorderDirective,
   ],
 })
 export class ComponentsModule { }

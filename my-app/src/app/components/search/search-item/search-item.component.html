@@ -1,10 +1,10 @@
-<mat-card class="search-item">
+<mat-card class="search-item" appHighlightBorder>
   <img mat-card-image src={{this.searchItem.snippet.thumbnails.medium.url}} alt="Video thumbnail">
   <mat-card-content>
     <app-statistics></app-statistics>
   </mat-card-content>
   <mat-card-header>
-    <mat-card-title>{{this.searchItem.snippet.title}}</mat-card-title>
+    <mat-card-title class="search-item__title">{{this.searchItem.snippet.title}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions>
     <button mat-raised-button color="primary">more...</button>
