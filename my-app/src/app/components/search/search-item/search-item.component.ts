@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SearchItem } from 'src/app/models/searchItem.model';
 
 @Component({
@@ -8,9 +8,9 @@ import { SearchItem } from 'src/app/models/searchItem.model';
 })
 
 export class SearchItemComponent {
-  item: SearchItem;
+  @Input() public searchItem: SearchItem = {} as SearchItem;
 
   constructor() {
-    this.item = {} as SearchItem;
+    console.log(this.searchItem)
   }
 }

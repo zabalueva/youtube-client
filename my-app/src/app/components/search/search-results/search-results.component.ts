@@ -4,8 +4,6 @@ import { SearchItem } from 'src/app/models/searchItem.model';
 import { SearchResults } from 'src/app/models/searchResults.model';
 import { ShowResultService } from 'src/app/services/showResultService';
 import { map } from 'rxjs/operators';
-/* import { Page } from 'src/app/models/page.model'; */
-/* import { PageInfo } from 'src/app/models/pageInfo.model'; */
 
 @Component({
   selector: 'app-search-results',
@@ -21,13 +19,16 @@ export class SearchResultsComponent {
 
   constructor(showResultService: ShowResultService, private http: HttpClient) {
     this.searchResult = {} as SearchResults;
-    this.http
-      .get("/assets/mockdata.json")
-      .pipe(map((data:any) => data))
-      .subscribe((data:any) => {
-        this.searchResult = data;
-        console.log(data);
-      });
     showResultService.showResult$.subscribe((show: boolean) => this.showResultFlag = show);
+
+    this.http
+    .get("/assets/mockdata.json")
+    //TODO: ask correct type instead any???
+    .pipe(map((data: any) => data))
+    .subscribe((data: SearchResults) => {
+      this.searchResult = data;
+      console.log(this.searchResult);
+    });
   }
+
 }

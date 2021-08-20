@@ -1,3 +1,5 @@
-<div *ngIf='showResultFlag'>
-  <app-search-item></app-search-item>
+<div *ngIf='showResultFlag' class="results-grid">
+  <div *ngFor='let item of searchResult.items'>
+    <app-search-item [searchItem]='item'></app-search-item>
+  </div>
 </div>
