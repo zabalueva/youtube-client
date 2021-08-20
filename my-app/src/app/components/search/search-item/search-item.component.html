@@ -1,4 +1,4 @@
-<mat-card class="search-item" [appHighlightBorder]="getColorBorder(this.searchItem.snippet.publishedAt)">
+<mat-card class="search-item" [appHighlightBorder]="'getColorBorder(this.searchItem.snippet.publishedAt)'">
   <img mat-card-image src={{this.searchItem.snippet.thumbnails.medium.url}} alt="Video thumbnail">
   <mat-card-content>
     <app-statistics></app-statistics>
