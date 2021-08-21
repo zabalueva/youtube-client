@@ -1,5 +1,8 @@
 <div *ngIf='showResultFlag' class="results-grid">
-  <div *ngFor='let item of searchResult.items'>
+  <div *ngFor="let item of searchResult.items">
+    <app-search-item [searchItem]='item'></app-search-item>
+  </div>
+  <div *ngFor="let item of searchResult.items | sort:'title'">
     <app-search-item [searchItem]='item'></app-search-item>
   </div>
 </div>

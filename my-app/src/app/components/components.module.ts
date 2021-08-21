@@ -7,26 +7,26 @@ import { StatisticsComponent } from './search/statistics/statistics.component';
 import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './sorting/sorting.component';
 import { HighlightBorderDirective } from '../directives/highlight-border.directive';
+import { SortPipe } from '../pipes/sort.pipe';
 
 @NgModule({
-  declarations: [
-    SearchItemComponent,
-    SearchResultsComponent,
-    HeaderComponent,
-    StatisticsComponent,
-    SortingComponent,
-    HighlightBorderDirective,
-  ],
-  imports: [
-    CommonModule,
-    MaterialsModule,
-  ],
-  exports: [
-    SearchItemComponent,
-    SearchResultsComponent,
-    HeaderComponent,
-    StatisticsComponent,
-    HighlightBorderDirective,
-  ],
+    declarations: [
+        SearchItemComponent,
+        SearchResultsComponent,
+        HeaderComponent,
+        StatisticsComponent,
+        SortingComponent,
+        HighlightBorderDirective,
+        SortPipe,
+    ],
+    imports: [CommonModule, MaterialsModule],
+    exports: [
+        SearchItemComponent,
+        SearchResultsComponent,
+        HeaderComponent,
+        StatisticsComponent,
+        HighlightBorderDirective,
+        SortPipe,
+    ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
