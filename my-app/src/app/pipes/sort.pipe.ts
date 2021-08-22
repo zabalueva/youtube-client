@@ -5,16 +5,16 @@ import { SearchItem } from '../models/searchItem.model';
     name: 'sort',
 })
 export class SortPipe implements PipeTransform {
-    private keyWord: string = 'for';
     public sortingItems: SearchItem[] = [];
 
-    transform(value: SearchItem[], ...args: string[]): SearchItem[] {
+    transform(value: SearchItem[], keyword: string): SearchItem[] {
         for (let item of value) {
-            if (item.snippet.title.includes(this.keyWord)) {
-                console.log('sorting');
-                this.sortingItems.push(item);
+            if (keyword != '') {
+                if (item.snippet.title.includes(keyword)) {
+                    this.sortingItems.push(item);
+                }
             }
         }
-        return this.sortingItems;
+        return Array.from(new Set(this.sortingItems));
     }
 }

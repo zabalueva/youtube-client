@@ -1,8 +1,6 @@
 <div class="sorting">Sorting by
   <button mat-button (click)=getSortDate()>date</button>
   <button mat-button>count of views</button>
-  <form class="sorting__form" appearance="fill">
-    <label>by word or sentance</label>
-    <input type="text">
-  </form>
+    <span>by word or sentance &nbsp;</span>
+    <input type="text" name="inputWord" [(ngModel)]="keyword" (oninput)="getWord(keyword)">
 </div>

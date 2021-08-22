@@ -8,6 +8,7 @@ import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './sorting/sorting.component';
 import { HighlightBorderDirective } from '../directives/highlight-border.directive';
 import { SortPipe } from '../pipes/sort.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,7 @@ import { SortPipe } from '../pipes/sort.pipe';
         HighlightBorderDirective,
         SortPipe,
     ],
-    imports: [CommonModule, MaterialsModule],
+    imports: [CommonModule, MaterialsModule, FormsModule],
     exports: [
         SearchItemComponent,
         SearchResultsComponent,
