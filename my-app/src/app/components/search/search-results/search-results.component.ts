@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SearchItem } from 'src/app/models/searchItem.model';
 import { SearchResults } from 'src/app/models/searchResults.model';
 import { ShowResultService } from 'src/app/services/showResultService';
@@ -31,7 +31,9 @@ export class SearchResultsComponent {
             (show: boolean) => (this.showResultFlag = show),
         );
 
-        this.keyword = this.showResultByWordService.getKeyWord();
+        showResultByWordService.showResultByWord$.subscribe(
+            () => (this.keyword = this.showResultByWordService.getKeyWord()),
+        );
 
         this.http
             .get('/assets/mockdata.json')

@@ -1,12 +1,5 @@
 <div *ngIf='showResultFlag' class="results-grid">
-  <div *ngFor="let item of searchResult.items">
-    <app-search-item [searchItem]='item'></app-search-item>
-  </div>
-</div>
-<div class="results-grid">
   <div *ngFor="let item of searchResult.items | sort: keyword">
     <app-search-item [searchItem]='item'></app-search-item>
   </div>
 </div>
-<!-- TODO: remove input -->
-<input type="text" name="inputWord" [(ngModel)]="keyword">

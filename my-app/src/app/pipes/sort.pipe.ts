@@ -3,6 +3,7 @@ import { SearchItem } from '../models/searchItem.model';
 
 @Pipe({
     name: 'sort',
+    pure: false,
 })
 export class SortPipe implements PipeTransform {
     public sortingItems: SearchItem[] = [];
@@ -13,7 +14,7 @@ export class SortPipe implements PipeTransform {
                 if (item.snippet.title.includes(keyword)) {
                     this.sortingItems.push(item);
                 }
-            }
+            } else return value;
         }
         return Array.from(new Set(this.sortingItems));
     }
