@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchItemComponent } from './search/search-item/search-item.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { HeaderComponent } from './header/header.component';
 import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './sorting/sorting.component';
 import { HighlightBorderDirective } from '../directives/highlight-border.directive';
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
     declarations: [
         SearchItemComponent,
         SearchResultsComponent,
-        HeaderComponent,
         SortingComponent,
         HighlightBorderDirective,
         SortPipe,
@@ -22,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     exports: [
         SearchItemComponent,
         SearchResultsComponent,
-        HeaderComponent,
+        SortingComponent,
         HighlightBorderDirective,
         SortPipe,
     ],
