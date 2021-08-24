@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
 import { SearchItem } from 'src/app/models/searchItem.model';
 import { SearchResults } from 'src/app/models/searchResults.model';
 import { ShowResultService } from 'src/app/services/showResultService';
@@ -12,10 +12,9 @@ import { ShowResultByWordService } from 'src/app/services/showResultByWordServic
     styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
+    @Output() searchResult: SearchResults;
     public showResultFlag = false;
     public showResultByWordFlag = false;
-
-    searchResult: SearchResults;
 
     keyword: string = '';
 
@@ -41,7 +40,6 @@ export class SearchResultsComponent {
             .pipe(map((data: any) => data))
             .subscribe((data: SearchResults) => {
                 this.searchResult = data;
-                console.log(this.keyword);
             });
     }
 }
