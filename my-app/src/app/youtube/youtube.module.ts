@@ -4,8 +4,8 @@ import { SearchItemComponent } from './components/search/search-item/search-item
 import { SearchResultsComponent } from './components/search/search-results/search-results.component';
 import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './components/sorting/sorting.component';
-import { HighlightBorderDirective } from '../directives/highlight-border.directive';
-import { SortPipe } from '../pipes/sort.pipe';
+import { HighlightBorderDirective } from './directives/highlight-border.directive';
+import { SortPipe } from './pipes/sort.pipe';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

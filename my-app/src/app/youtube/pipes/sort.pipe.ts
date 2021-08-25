@@ -1,5 +1,5 @@
 import { NgIterable, Pipe, PipeTransform } from '@angular/core';
-import { SearchItem } from '../youtube/models/searchItem.model';
+import { SearchItem } from '../models/searchItem.model';
 
 @Pipe({
     name: 'sort',
