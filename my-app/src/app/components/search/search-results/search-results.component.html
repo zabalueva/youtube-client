@@ -1,5 +1,5 @@
-<div *ngIf='showResultFlag' class="results-grid">
-  <div *ngFor="let item of searchResult.items | sort: keyword">
-    <app-search-item [searchItem]='item'></app-search-item>
-  </div>
+<div *ngIf="showResultFlag" class="results-grid">
+    <div *ngFor="let item of searchResult.items | filterByWord: keyword">
+        <app-search-item [searchItem]="item"></app-search-item>
+    </div>
 </div>
