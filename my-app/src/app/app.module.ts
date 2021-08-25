@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import AppComponent from './app.component';
-import { ComponentsModule } from './components/components.module';
+import { YoutubeModule } from './components/youtube.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { CoreModule } from './core/core.module';
         HttpClientModule,
         BrowserModule,
         CoreModule,
-        ComponentsModule,
+        YoutubeModule,
         BrowserAnimationsModule,
     ],
     providers: [],

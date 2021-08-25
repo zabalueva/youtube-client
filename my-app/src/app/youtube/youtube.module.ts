@@ -25,4 +25,4 @@ import { FormsModule } from '@angular/forms';
         SortPipe,
     ],
 })
-export class ComponentsModule {}
+export class YoutubeModule {}
