@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ShowResultService } from 'src/app/services/showResultService';
+import { ShowResultService } from 'src/app/youtube/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 
 const PLACE_HOLDER = 'What are you want to find out?';

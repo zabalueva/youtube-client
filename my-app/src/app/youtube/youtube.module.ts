@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { SearchItemComponent } from './components/search/search-item/search-item.component';
+import { SearchResultsComponent } from './components/search/search-results/search-results.component';
 import MaterialsModule from '../materials/materials.module';
-import { SortingComponent } from './sorting/sorting.component';
+import { SortingComponent } from './components/sorting/sorting.component';
 import { HighlightBorderDirective } from '../directives/highlight-border.directive';
 import { SortPipe } from '../pipes/sort.pipe';
 import { FormsModule } from '@angular/forms';

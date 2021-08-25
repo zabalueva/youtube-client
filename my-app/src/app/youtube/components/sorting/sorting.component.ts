@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchItem } from 'src/app/models/searchItem.model';
-import { SearchResults } from 'src/app/models/searchResults.model';
-import { ShowResultByWordService } from 'src/app/services/showResultByWordService';
+import { SearchItem } from 'src/app/youtube/models/searchItem.model';
+import { SearchResults } from 'src/app/youtube/models/searchResults.model';
+import { ShowResultByWordService } from 'src/app/youtube/services/showResultByWordService';
 
 @Component({
     selector: 'app-sorting',

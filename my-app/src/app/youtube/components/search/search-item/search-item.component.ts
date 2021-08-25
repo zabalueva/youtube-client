@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SearchItem } from 'src/app/models/searchItem.model';
+import { SearchItem } from 'src/app/youtube/models/searchItem.model';
 import { COLORS } from 'src/app/shared/colors';
 
 const DAY_IN_MONTH = 30;

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
-import { SearchItem } from 'src/app/models/searchItem.model';
-import { SearchResults } from 'src/app/models/searchResults.model';
-import { ShowResultService } from 'src/app/services/showResultService';
+import { SearchItem } from 'src/app/youtube/models/searchItem.model';
+import { SearchResults } from 'src/app/youtube/models/searchResults.model';
+import { ShowResultService } from 'src/app/youtube/services/showResultService';
 import { map } from 'rxjs/operators';
-import { ShowResultByWordService } from 'src/app/services/showResultByWordService';
+import { ShowResultByWordService } from 'src/app/youtube/services/showResultByWordService';
 
 @Component({
     selector: 'app-search-results',
