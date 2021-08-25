@@ -1,26 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class ShowResultByWordService {
-    public showResultByWord$ = new BehaviorSubject<boolean>(false);
-    public keyword: string = '';
+  private keyword: string = '';
 
-    get showResultByWordS$() {
-        return this.showResultByWord$.asObservable();
-    }
+  public saveKeyword(word: string):void {
+    this.keyword = word;
+  }
 
-    showByWordMode() {
-        this.showResultByWord$.next(true);
-    }
-
-    saveKeyword(word: string) {
-        this.keyword = word;
-    }
-
-    getKeyWord() {
-        return this.keyword;
-    }
+  get getKeyWord(): string {
+    return this.keyword;
+  }
 }
