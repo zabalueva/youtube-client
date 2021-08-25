@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { ShowResultService } from 'src/app/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 
@@ -29,15 +28,15 @@ export class HeaderComponent {
     showResultService.showResultS$.subscribe((show) => this.showResult = show);
   }
 
-  getUsername() {
+  getUsername():void {
     this.userName = 'Your name';
   }
 
-  toggleFilter() {
+  toggleFilter():void {
     this.showFilter = !this.showFilter;
   }
 
-  showSearchResult() {
+  showSearchResult():void {
     this.showResultService.showMode();
   }
 }
