@@ -17,4 +17,14 @@ export class SortingService {
       this.sortedFlagByDate = 'normal';
     }
   }
+
+  sortByCountViews() {
+    if (!this.sortedFlagByCountViews) {
+      this.sortedFlagByCountViews = 'normal';
+    } else if (this.sortedFlagByCountViews === 'normal') {
+      this.sortedFlagByCountViews = 'reverse';
+    } else if (this.sortedFlagByCountViews === 'reverse') {
+      this.sortedFlagByCountViews = 'normal';
+    }
+  }
 }
