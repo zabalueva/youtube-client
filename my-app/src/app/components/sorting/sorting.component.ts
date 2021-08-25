@@ -53,7 +53,6 @@ export class SortingComponent implements OnInit {
 
     //TODO: how we can remove finded items after backspace keyword
     getWord(keyword: string) {
-        this.showResultByWordService.showByWordMode();
         this.showResultByWordService.saveKeyword(keyword);
     }
 }
