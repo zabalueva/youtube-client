@@ -17,7 +17,7 @@ const COUNT_MS = 1000 * 60 * 60 * 24;
 export class SearchItemComponent implements OnInit {
   @Input() public searchItem: SearchItem = {} as SearchItem;
 
-  public colorHighlightBorder: string = COLORS.DEFAULT;
+  public colorHighlightBorder: COLORS = COLORS.DEFAULT;
 
   constructor() {}
 
@@ -25,7 +25,7 @@ export class SearchItemComponent implements OnInit {
     this.getColorBorder();
   }
 
-  getColorBorder() {
+  getColorBorder():void {
     const countDays = Math.floor(
       (+new Date() - +new Date(this.searchItem.snippet.publishedAt)) / COUNT_MS,
     );

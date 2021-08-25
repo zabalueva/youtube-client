@@ -11,16 +11,16 @@
     text-overflow: ellipsis;
   }
 
- &__statistics {
+  &__statistics {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: auto;
- }
+  }
 }
 
 .statistics__item {
- font-size: 12px;
+  font-size: 12px;
 }
 
 .example-header-image {
