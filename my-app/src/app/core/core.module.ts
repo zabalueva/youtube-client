@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import HeaderComponent from './components/header/header.component';
 import MaterialsModule from '../materials/materials.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
-    declarations: [HeaderComponent],
+    declarations: [HeaderComponent, NotFoundComponent],
     imports: [CommonModule, MaterialsModule],
-    exports: [HeaderComponent],
+    exports: [HeaderComponent, NotFoundComponent],
 })
 export class CoreModule {}
