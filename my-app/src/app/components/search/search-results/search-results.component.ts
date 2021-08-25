@@ -4,6 +4,7 @@ import { SearchResults } from 'src/app/models/searchResults.model';
 import { ShowResultService } from 'src/app/services/showResultService';
 import { map } from 'rxjs/operators';
 import { ShowResultByWordService } from 'src/app/services/showResultByWordService';
+import { SortingService } from 'src/app/services/sorting.service';
 
 @Component({
   selector: 'app-search-results',
@@ -19,6 +20,7 @@ export class SearchResultsComponent implements OnInit {
     private showResultService: ShowResultService,
     private http: HttpClient,
     public showResultByWordService: ShowResultByWordService,
+    public sortingService: SortingService,
   ) {}
 
   ngOnInit() {

@@ -3,6 +3,7 @@
         *ngFor="
             let item of searchResult.items
                 | filterByWord: showResultByWordService.getKeyWord
+                | sortByDate: sortingService.sortedFlagByDate
         "
     >
         <app-search-item [searchItem]="item"></app-search-item>

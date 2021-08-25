@@ -8,6 +8,8 @@ import MaterialsModule from '../materials/materials.module';
 import { SortingComponent } from './sorting/sorting.component';
 import { HighlightBorderDirective } from '../directives/highlight-border.directive';
 import { FilterByWordPipe } from '../pipes/filter-by-word.pipe';
+import { SortByDatePipe } from '../pipes/sort-by-date.pipe';
+import { SortByCountViewsPipe } from '../pipes/sort-by-count-views.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FilterByWordPipe } from '../pipes/filter-by-word.pipe';
     SortingComponent,
     HighlightBorderDirective,
     FilterByWordPipe,
+    SortByDatePipe,
+    SortByCountViewsPipe,
   ],
   imports: [CommonModule, MaterialsModule, FormsModule],
   exports: [
@@ -25,6 +29,8 @@ import { FilterByWordPipe } from '../pipes/filter-by-word.pipe';
     HeaderComponent,
     HighlightBorderDirective,
     FilterByWordPipe,
+    SortByDatePipe,
+    SortByCountViewsPipe,
   ],
 })
 export class ComponentsModule {}
