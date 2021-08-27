@@ -1,7 +1,7 @@
 import {
   Directive, ElementRef, Input, OnInit,
 } from '@angular/core';
-import { COLORS } from '../shared/colors';
+import { COLORS } from '../../shared/colors';
 
 @Directive({
   selector: '[appHighlightBorder]',
