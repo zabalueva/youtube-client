@@ -1,44 +1,49 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ShowResultService } from 'src/app/youtube/services/showResultService';
+import { Component, OnInit } from '@angular/core';
+import { ShowResultService } from 'src/app/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 
 const PLACE_HOLDER = 'What are you want to find out?';
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-    public logo: string = PATHS.logoApp;
 
-    public avatar: string = PATHS.avatarUser;
+export class HeaderComponent implements OnInit {
+  public logo: string = PATHS.logoApp;
 
-    public filterButton: string = PATHS.filterButtonSettings;
+  public avatar: string = PATHS.avatarUser;
 
-    public inputPlaceholder: string = PLACE_HOLDER;
+  public filterButton: string = PATHS.filterButtonSettings;
 
-    public userName: string = 'Your name';
+  public inputPlaceholder: string = PLACE_HOLDER;
 
-    public showFilter = false;
+  public userName: string = 'Your name';
 
-    public showResult = false;
+  public showFilter = false;
 
-    constructor(public showResultService: ShowResultService) {
-        showResultService.showResultS$.subscribe((show) => (this.showResult = show));
-    }
+  public showResult = false;
 
-    getUsername() {
-        this.userName = 'Your name';
-    }
+  constructor(public showResultService: ShowResultService) {
+  }
 
-    toggleFilter() {
-        this.showFilter = !this.showFilter;
-    }
+  ngOnInit() {
+    this.showResultService.showResultS$.subscribe((show) => {
+      this.showResult = show;
+    });
+  }
 
-    showSearchResult() {
-        this.showResultService.showMode();
-    }
+  getUsername():void {
+    this.userName = 'Your name';
+  }
+
+  toggleFilter():void {
+    this.showFilter = !this.showFilter;
+  }
+
+  showSearchResult():void {
+    this.showResultService.showMode();
+  }
 }
 
 export { HeaderComponent as default };
