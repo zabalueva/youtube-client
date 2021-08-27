@@ -1,0 +1,12 @@
+<div *ngIf="showResultFlag" class="results-grid">
+    <div
+        *ngFor="
+            let item of searchResult.items
+                | filterByWord: showResultByWordService.getKeyWord
+                | sortByDate: sortingService.sortedFlagByDate
+                | sortByCountViews: sortingService.sortedFlagByCountViews
+        "
+    >
+        <app-search-item [searchItem]="item"></app-search-item>
+    </div>
+</div>

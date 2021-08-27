@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin: 8px auto;
+  height: 4em;
+  width: 80vw;
+
+  &__search-field {
+    margin-top: 8px;
+  }
+}
+
+.header__wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+}
+
+.header__login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto auto;
+}
+
+.header__filterButton {
+  height: 2em;
+  cursor: pointer;
+}
