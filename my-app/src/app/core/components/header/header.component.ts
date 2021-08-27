@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowResultService } from 'src/app/youtube/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
+import { ShowFiltersService } from 'src/app/youtube/services/show-filters.service';
 
 const PLACE_HOLDER = 'What are you want to find out?';
 @Component({
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
   public showResult = false;
 
-  constructor(public showResultService: ShowResultService) {
+  constructor(public showResultService: ShowResultService, public showFiltersService: ShowFiltersService) {
   }
 
   ngOnInit() {
@@ -37,8 +38,8 @@ export class HeaderComponent implements OnInit {
     this.userName = 'Your name';
   }
 
-  toggleFilter():void {
-    this.showFilter = !this.showFilter;
+  toggleFilter(): void {
+    this.showFiltersService.toggleShowMode();
   }
 
   showSearchResult():void {

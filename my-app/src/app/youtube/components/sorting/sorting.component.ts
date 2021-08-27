@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShowResultByWordService } from 'src/app/youtube/services/showResultByWordService';
+import { ShowFiltersService } from '../../services/show-filters.service';
 import { SortingService } from '../../services/sorting.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class SortingComponent {
   constructor(
     private showResultByWordService: ShowResultByWordService,
     public sortingService: SortingService,
+    public showFiltersService: ShowFiltersService,
   ) { }
 
   getWord() {

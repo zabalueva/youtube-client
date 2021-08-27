@@ -1,4 +1,4 @@
-<div class="sorting">
+<div class="sorting" *ngIf="showFiltersService.showFilters">
     Sorting by
     <button mat-button (click)="sortingService.sortByDate()">date</button>
     <span>

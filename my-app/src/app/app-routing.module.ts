@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 
-const routes: Routes=[
+const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./core/core.module').then(m => m.CoreModule)
+    loadChildren: () => import('./core/core.module').then((m) => m.CoreModule),
   },
   {
     path: 'youtube',
-    loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)
+    loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   { path: '**', component: NotFoundComponent },
 ];
