@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './auth/page/login/login.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+import { SearchResultsComponent } from './youtube/components/search/search-results/search-results.component';
 
 const routes: Routes = [
   {
@@ -10,10 +12,12 @@ const routes: Routes = [
   {
     path: 'youtube',
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
+    component: SearchResultsComponent,
   },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: LoginComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];
