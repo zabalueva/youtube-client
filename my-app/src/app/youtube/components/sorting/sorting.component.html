@@ -1,6 +1,21 @@
-<div class="sorting">Sorting by
-  <button mat-button (click)=getSortDate(this.searchResult.items)>date</button>
-  <button mat-button>count of views</button>
+<div class="sorting">
+    Sorting by
+    <button mat-button (click)="sortingService.sortByDate()">date</button>
+    <span>
+        <mat-icon *ngIf="sortingService.sortedFlagByDate === 'normal'; else elseBlock">
+            vertical_align_bottom</mat-icon
+        >
+    </span>
+    <ng-template #elseBlock> <mat-icon> vertical_align_top</mat-icon></ng-template>
+    <button mat-button (click)="sortingService.sortByCountViews()">count of views</button>
+    <span>
+        <mat-icon
+            *ngIf="sortingService.sortedFlagByCountViews === 'normal'; else elseBlock"
+        >
+            vertical_align_bottom</mat-icon
+        >
+    </span>
+    <ng-template #elseBlock> <mat-icon> vertical_align_top</mat-icon></ng-template>
     <span>by word or sentance &nbsp;</span>
-    <input type="text" #inputWord [(ngModel)]="keywords" (input)="getWord(inputWord.value)">
+    <input type="text" [(ngModel)]="keywords" (input)="getWord()" />
 </div>
