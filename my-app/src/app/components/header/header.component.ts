@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShowResultService } from 'src/app/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 
@@ -9,7 +9,7 @@ const PLACE_HOLDER = 'What are you want to find out?';
   styleUrls: ['./header.component.scss'],
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public logo: string = PATHS.logoApp;
 
   public avatar: string = PATHS.avatarUser;
@@ -25,7 +25,12 @@ export class HeaderComponent {
   public showResult = false;
 
   constructor(public showResultService: ShowResultService) {
-    showResultService.showResultS$.subscribe((show) => this.showResult = show);
+  }
+
+  ngOnInit() {
+    this.showResultService.showResultS$.subscribe((show) => {
+      this.showResult = show;
+    });
   }
 
   getUsername():void {
