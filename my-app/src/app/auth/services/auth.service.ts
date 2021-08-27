@@ -23,6 +23,8 @@ export class AuthService {
   }
 
   logout(): void {
+    localStorage.setItem('login', '');
+    localStorage.setItem('password', '');
     this.isLoggedIn = false;
   }
 }

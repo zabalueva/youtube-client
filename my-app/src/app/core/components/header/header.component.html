@@ -21,6 +21,9 @@
         />
     </div>
     <div class="header__login login">
+        <button mat-raised-button color="primary" (click)="authService.logout()">
+            Log out
+        </button>
         <span class="login__name">{{ userName }}</span>
         <img class="login__avatar" src="{{ avatar }}" alt="logo" />
     </div>
