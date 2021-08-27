@@ -19,15 +19,13 @@ export class SearchItemComponent implements OnInit {
 
   public colorHighlightBorder: COLORS = COLORS.DEFAULT;
 
-  constructor() {}
-
   ngOnInit() {
     this.getColorBorder();
   }
 
   getColorBorder():void {
     const countDays = Math.floor(
-      (+new Date() - +new Date(this.searchItem.snippet.publishedAt)) / COUNT_MS,
+      (+new Date() - +new Date(this.searchItem?.snippet?.publishedAt)) / COUNT_MS,
     );
     if (countDays < NUMBER_OF_DAYS_FRESH) {
       this.colorHighlightBorder = COLORS.FRESH;

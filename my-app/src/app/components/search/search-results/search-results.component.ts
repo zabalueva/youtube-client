@@ -25,7 +25,9 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.showResultService.showResult$.subscribe(
-      (show: boolean) => (this.showResultFlag = show),
+      (show: boolean) => {
+        this.showResultFlag = show;
+      },
     );
 
     this.http
