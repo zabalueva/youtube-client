@@ -5,6 +5,8 @@ import { ShowResultService } from 'src/app/youtube/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 import { ShowFiltersService } from 'src/app/youtube/services/show-filters.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { fromEvent } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 const PLACE_HOLDER = 'What are you want to find out?';
 @Component({
@@ -58,9 +60,13 @@ export class HeaderComponent implements OnInit {
   }
 
   getSearchByWord() {
-    if (this.wordForSearch.length >= 3) {
-      this.search.emit(true);
-      console.log(this.wordForSearch);
-    }
+    const typing = fromEvent(document, 'keydown');
+    const result = typing.pipe(debounceTime(1000));
+    result.subscribe((x) => {
+      if (this.wordForSearch.length >= 3) {
+        this.search.emit(true);
+        this.showSearchResult();
+      }
+    });
   }
 }
