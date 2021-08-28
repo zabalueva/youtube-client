@@ -29,7 +29,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     public showResultService: ShowResultService,
     public showFiltersService: ShowFiltersService,
-    public authService: AuthService) {
+    public authService: AuthService,
+  ) {
   }
 
   ngOnInit() {
@@ -50,5 +51,3 @@ export class HeaderComponent implements OnInit {
     this.showResultService.showMode();
   }
 }
-
-export { HeaderComponent as default };

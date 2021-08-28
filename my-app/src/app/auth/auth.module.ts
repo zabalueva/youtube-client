@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './page/login/login.component';
-
-
+import MaterialsModule from '../shared/materials/materials.module';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule, MaterialsModule,
+  ],
 })
 export class AuthModule { }

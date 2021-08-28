@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
@@ -9,7 +10,9 @@ import { tap, delay } from 'rxjs/operators';
 export class AuthService {
   isLoggedIn = false;
 
-  redirectUrl: string | null = 'admin';
+  public router: Router = {} as Router;
+
+  redirectUrl: string | null = 'auth';
 
   login(): Observable<boolean> {
     localStorage.setItem('login', 'user');
@@ -26,5 +29,6 @@ export class AuthService {
     localStorage.setItem('login', '');
     localStorage.setItem('password', '');
     this.isLoggedIn = false;
+    this.router.navigate([this.redirectUrl]);
   }
 }
