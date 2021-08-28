@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-
 import { SearchResults } from 'src/app/youtube/models/searchResults.model';
 import { ShowResultService } from 'src/app/youtube/services/showResultService';
-import { map } from 'rxjs/operators';
 import { ShowResultByWordService } from 'src/app/youtube/services/showResultByWordService';
 import { Component, OnInit } from '@angular/core';
 import { SortingService } from 'src/app/youtube/services/sorting.service';
+import { GetSearchService } from 'src/app/youtube/services/get-search.service';
 
 @Component({
   selector: 'app-search-results',
@@ -19,7 +17,7 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     private showResultService: ShowResultService,
-    private http: HttpClient,
+    private getSearchService: GetSearchService,
     public showResultByWordService: ShowResultByWordService,
     public sortingService: SortingService,
   ) {}
@@ -30,13 +28,12 @@ export class SearchResultsComponent implements OnInit {
         this.showResultFlag = show;
       },
     );
+    this.getResults();
+  }
 
-    this.http
-      .get('/assets/mockdata.json')
-    // TODO: ask correct type instead any???
-      .pipe(map((data: any) => data))
-      .subscribe((data: SearchResults) => {
-        this.searchResult = data;
-      });
+  getResults() {
+    this.getSearchService.getSearch().subscribe((showResult) => {
+      this.searchResult = showResult;
+    });
   }
 }
