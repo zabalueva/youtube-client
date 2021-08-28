@@ -4,7 +4,7 @@ import { Statistics } from './statistics.model';
 export interface SearchItem {
   kind: string,
   etag: string,
-  id: string,
+  id: string | null,
   snippet: Snippet,
   statistics: Statistics
 }

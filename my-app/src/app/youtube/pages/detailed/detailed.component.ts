@@ -4,6 +4,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { COLORS } from 'src/app/shared/colors';
 import { SearchItem } from '../../models/searchItem.model';
+import { GetSearchService } from '../../services/get-search.service';
 
 @Component({
   selector: 'app-detailed',
@@ -12,18 +13,19 @@ import { SearchItem } from '../../models/searchItem.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailedComponent implements OnInit {
-  public searchItem: SearchItem = {} as SearchItem;
+  public searchItem: SearchItem | undefined = {} as SearchItem;
 
   @Input() colorHighlightBorder = COLORS.DEFAULT;
 
   constructor(private route: ActivatedRoute,
-    private location: Location) { }
+    public getSearchService: GetSearchService) { }
 
   ngOnInit(): void {
     this.getItem();
   }
 
   getItem(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id: string = String(this.route.snapshot.paramMap.get('id'));
+    this.searchItem = this.getSearchService.getItem(id);
   }
 }
