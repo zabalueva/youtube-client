@@ -23,15 +23,12 @@
                 {{ searchItem?.statistics?.commentCount }}
             </span>
         </div>
+        <div>{{ searchItem?.snippet?.description }}</div>
+        <div>{{ searchItem?.snippet?.publishedAt }}</div>
     </mat-card-content>
     <mat-card-header>
         <mat-card-title class="search-item__title">{{
             searchItem?.snippet?.title
         }}</mat-card-title>
     </mat-card-header>
-    <mat-card-actions>
-        <a routerLink="/youtube/{searchItem?.id}" mat-raised-button color="primary"
-            >more...</a
-        >
-    </mat-card-actions>
 </mat-card>

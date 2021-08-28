@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy, Component, Input, OnInit,
+  ChangeDetectionStrategy, Component, Input, OnInit, Output,
 } from '@angular/core';
 import { SearchItem } from 'src/app/youtube/models/searchItem.model';
 import { COLORS } from 'src/app/shared/colors';
@@ -17,7 +17,7 @@ const COUNT_MS = 1000 * 60 * 60 * 24;
 export class SearchItemComponent implements OnInit {
   @Input() public searchItem: SearchItem = {} as SearchItem;
 
-  public colorHighlightBorder: COLORS = COLORS.DEFAULT;
+  @Output() public colorHighlightBorder: COLORS = COLORS.DEFAULT;
 
   ngOnInit() {
     this.getColorBorder();
