@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit, Output, EventEmitter,
+} from '@angular/core';
 import { ShowResultService } from 'src/app/youtube/services/showResultService';
 import { PATHS } from 'src/app/shared/paths';
 import { ShowFiltersService } from 'src/app/youtube/services/show-filters.service';
@@ -12,6 +14,8 @@ const PLACE_HOLDER = 'What are you want to find out?';
 })
 
 export class HeaderComponent implements OnInit {
+  @Output() search: EventEmitter<any> = new EventEmitter();
+
   public logo: string = PATHS.logoApp;
 
   public avatar: string = PATHS.avatarUser;
@@ -25,6 +29,8 @@ export class HeaderComponent implements OnInit {
   public showFilter = false;
 
   public showResult = false;
+
+  public wordForSearch = '';
 
   constructor(
     public showResultService: ShowResultService,
@@ -49,5 +55,12 @@ export class HeaderComponent implements OnInit {
 
   showSearchResult():void {
     this.showResultService.showMode();
+  }
+
+  getSearchByWord() {
+    if (this.wordForSearch.length >= 3) {
+      this.search.emit(true);
+      console.log(this.wordForSearch);
+    }
   }
 }
