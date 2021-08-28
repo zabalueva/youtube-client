@@ -25,7 +25,9 @@ export class GetSearchService {
   getItem(id: string | null): SearchItem | undefined {
     this.http
       .get('/assets/mockdata.json')
-      .pipe(map((data: any) => this.searchResults = data));
+      .pipe(map((data: any) => {
+        this.searchResults = data;
+      }));
     return this.searchResults?.items?.find((itemFind) => itemFind.id === id);
   }
 }
