@@ -1,0 +1,43 @@
+<header class="header">
+    <div class="header__wrap">
+        <img class="header__logo" src="{{ logo }}" alt="logo" />
+        <mat-form-field class="header__search-field" appearance="fill">
+            <mat-label>{{ inputPlaceholder }}</mat-label>
+            <input matInput type="text" required />
+        </mat-form-field>
+        <button
+            mat-raised-button
+            color="primary"
+            aria-label="Filter"
+            (click)="showSearchResult()"
+        >
+            search
+        </button>
+        <img
+            class="header__filterButton"
+            src="{{ filterButton }}"
+            alt="logo"
+            (click)="toggleFilter()"
+        />
+    </div>
+    <div class="header__login login">
+        <a
+            routerLink="/auth"
+            *ngIf="!authService.isLoggedIn"
+            mat-raised-button
+            color="primary"
+        >
+            Log in
+        </a>
+        <button
+            *ngIf="authService.isLoggedIn"
+            mat-raised-button
+            color="primary"
+            (click)="authService.logout()"
+        >
+            Log out
+        </button>
+        <span class="login__name">{{ userName }}</span>
+        <img class="login__avatar" src="{{ avatar }}" alt="logo" />
+    </div>
+</header>

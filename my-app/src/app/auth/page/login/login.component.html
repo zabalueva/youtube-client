@@ -1,0 +1,22 @@
+<div class="registration__wrap">
+    <div class="registration__form form" action="POST" autocomplete="off">
+        <h2>Login</h2>
+        <input
+            class="form__input form__input_login"
+            type="text"
+            placeholder="login"
+            required
+            #username
+        />
+        <input
+            class="form__input form__input_password"
+            type="text"
+            placeholder="password"
+            required
+            #password
+        />
+        <div class="button-container">
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+        </div>
+    </div>
+</div>

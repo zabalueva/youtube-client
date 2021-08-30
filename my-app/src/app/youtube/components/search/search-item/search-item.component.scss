@@ -1,0 +1,29 @@
+.search-item {
+  max-width: 264px;
+  height: 400px;
+  max-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 16px 0 16px;
+
+  &__title {
+    text-overflow: ellipsis;
+  }
+
+  &__statistics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  }
+}
+
+.statistics__item {
+  font-size: 12px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
