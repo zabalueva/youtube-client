@@ -7,6 +7,7 @@ import { ShowFiltersService } from 'src/app/youtube/services/show-filters.servic
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { GetSearchService } from 'src/app/youtube/services/get-search.service';
 
 const PLACE_HOLDER = 'What are you want to find out?';
 @Component({
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit {
     public showResultService: ShowResultService,
     public showFiltersService: ShowFiltersService,
     public authService: AuthService,
+    public getSearchService: GetSearchService,
   ) {
   }
 
@@ -60,9 +62,10 @@ export class HeaderComponent implements OnInit {
   }
 
   getSearchByWord() {
+    this.getSearchService.saveKeyword(this.wordForSearch);
     const typing = fromEvent(document, 'keydown');
     const result = typing.pipe(debounceTime(1000));
-    result.subscribe((x) => {
+    result.subscribe(() => {
       if (this.wordForSearch.length >= 3) {
         this.search.emit(true);
         this.showSearchResult();
