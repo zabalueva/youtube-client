@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const MY_API_KEY = 'AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4';
+const MY_API_KEY = '?key=AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4';
 
 @Injectable()
 export class ApiInterInterceptor implements HttpInterceptor {

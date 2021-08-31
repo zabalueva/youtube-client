@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SearchItem } from '../models/searchItem.model';
 import { SearchResults } from '../models/searchResults.model';
+import { Statistics } from '../models/statistics.model';
 
 const MY_API_KEY = 'AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4';
 
@@ -14,7 +15,7 @@ const MY_API_KEY = 'AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4';
 export class GetSearchService {
   public searchResults: SearchResults = {} as SearchResults;
 
-  public baseURLSearch: string = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=';
+  public baseURLSearch: string = 'https://www.googleapis.com/youtube/v3/search';
 
   public baseURLVideos: string = 'https://www.googleapis.com/youtube/v3/videos';
 
@@ -22,7 +23,13 @@ export class GetSearchService {
 
   private keyword: string = '';
 
-  private url: string = `${this.baseURLSearch}${MY_API_KEY}&q=${this.keyword}`;
+  public statisticsResult: Statistics = {} as Statistics;
+
+  public listOfId: (string | null)[] = [];
+
+  private urlSearch: string = `${this.baseURLSearch}&q=${this.keyword}`;
+
+  private urlVideos: string = `${this.baseURLSearch}`;
 
   constructor(private http: HttpClient) { }
 
@@ -36,13 +43,21 @@ export class GetSearchService {
 
   getSearch(): Observable<SearchResults> {
     return this.http
-      .get(this.url)
+      .get(this.urlSearch)
       .pipe(map((data: any) => this.searchResults = data));
+  }
+
+  getStatistics(): Observable<SearchResults> {
+    this.searchResults.items.map((item) => this.listOfId.push(item.id));
+    return this.http
+      .get(this.urlVideos)
+      //TODO: add find по id?
+      .pipe(map((data: any) => data));
   }
 
   getItem(id: string | null): SearchItem | undefined {
     this.http
-      .get(this.url)
+      .get(this.urlSearch)
       .pipe(map((data: any) => {
         this.searchResults = data;
       }));
