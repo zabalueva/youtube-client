@@ -6,8 +6,6 @@ import { SearchItem } from '../models/searchItem.model';
 import { SearchResults } from '../models/searchResults.model';
 import { Statistics } from '../models/statistics.model';
 
-const MY_API_KEY = 'AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -27,7 +25,7 @@ export class GetSearchService {
 
   public listOfId: (string | null)[] = [];
 
-  private urlSearch: string = `${this.baseURLSearch}&q=${this.keyword}`;
+  private urlSearch: string = `${this.baseURLSearch}&q=${this.keyword}&type=video&part=snippet`;
 
   private urlVideos: string = `${this.baseURLSearch}`;
 
@@ -51,7 +49,7 @@ export class GetSearchService {
     this.searchResults.items.map((item) => this.listOfId.push(item.id));
     return this.http
       .get(this.urlVideos)
-      //TODO: add find по id?
+      // TODO: add find по id?
       .pipe(map((data: any) => data));
   }
 

@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'https://www.googleapis.com/youtube/v3/',
+  apiKey: 'AIzaSyBPYHRudHOjhkTbV2rgtFSGhNxDK6Fl7j4',
 };
 
 export { environment as default };
