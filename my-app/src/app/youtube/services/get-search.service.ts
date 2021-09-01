@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import environment from 'src/environments/environment';
 import { SearchItem } from '../models/searchItem.model';
 import { SearchResults } from '../models/searchResults.model';
 import { Statistics } from '../models/statistics.model';
@@ -25,7 +26,7 @@ export class GetSearchService {
 
   public listOfId: (string | null)[] = [];
 
-  private urlSearch: string = `${this.baseURLSearch}&q=${this.keyword}&type=video&part=snippet`;
+  private urlSearch: string = `${environment.baseUrl}search?q=${this.keyword}&type=video&part=snippet`;
 
   private urlVideos: string = `${this.baseURLSearch}`;
 
