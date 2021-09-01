@@ -71,5 +71,6 @@ export class HeaderComponent implements OnInit {
         this.showSearchResult();
       }
     });
+    this.getSearchService.getSearch();
   }
 }

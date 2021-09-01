@@ -9,6 +9,7 @@
                 required
                 [(ngModel)]="wordForSearch"
                 (input)="getSearchByWord()"
+                (keydown.enter)="getSearchByWord()"
             />
         </mat-form-field>
         <img
