@@ -26,6 +26,7 @@ export class DetailedComponent implements OnInit {
 
   getItem(): void {
     const id: string = String(this.route.snapshot.paramMap.get('id'));
-    this.searchItem = this.getSearchService.getItem(id);
+    // TODO: подписаться здесь на итоговый метод, который сразу будет включать в себя статистику?
+    /* this.getSearchService.getItem(id).subscribe((data) => this.searchItem = data.items[0]);  */
   }
 }

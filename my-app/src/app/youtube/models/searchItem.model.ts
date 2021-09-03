@@ -4,7 +4,10 @@ import { Statistics } from './statistics.model';
 export interface SearchItem {
   kind: string,
   etag: string,
-  id: string | null,
+  id: {
+    kind?: string,
+    videoId: string
+  }
   snippet: Snippet,
   statistics: Statistics
 }

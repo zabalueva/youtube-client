@@ -31,9 +31,20 @@ export class SearchResultsComponent implements OnInit {
     this.getResults();
   }
 
+  // TODO: добавить onChange чтобы результаты перерисовывались когда меняется сабскрайбер?
+  // Почему не меняется автоматически это же обзёрвбл?..
+
   getResults() {
     this.getSearchService.getSearch().subscribe((showResult) => {
       this.searchResult = showResult;
     });
+    // TODO: получить статистику здесь через сервис?
+    this.searchResult?.items?.map(
+      (item) => this.getSearchService.getItem(item.id.videoId).subscribe(
+        (itemPoint) => {
+          console.log(itemPoint);
+        },
+      ),
+    );
   }
 }

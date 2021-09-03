@@ -10,13 +10,8 @@ import { Statistics } from '../models/statistics.model';
 @Injectable({
   providedIn: 'root',
 })
-
 export class GetSearchService {
   public searchResults: SearchResults = {} as SearchResults;
-
-  public baseURLSearch: string = 'https://www.googleapis.com/youtube/v3/search';
-
-  public baseURLVideos: string = 'https://www.googleapis.com/youtube/v3/videos';
 
   public searchItem: SearchItem = {} as SearchItem;
 
@@ -26,11 +21,11 @@ export class GetSearchService {
 
   public listOfId: (string | null)[] = [];
 
-  private urlSearch: string = `${environment.baseUrl}search?q=${this.keyword}&type=video&part=snippet`;
+  private searchID: string = 'EFfu-xqAEts';
 
-  private urlVideos: string = `${this.baseURLSearch}`;
+  private urlVideos: string = `${environment.baseUrl}videos?id=${this.searchID}&part=snippet,statistics`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public saveKeyword(word: string): void {
     this.keyword = word;
@@ -40,26 +35,37 @@ export class GetSearchService {
     return this.keyword;
   }
 
+  getUrlVideo(id:string) {
+    this.urlVideos = `${environment.baseUrl}videos?id=${id}&part=snippet,statistics`;
+    return this.urlVideos;
+  }
+
   getSearch(): Observable<SearchResults> {
     return this.http
-      .get(this.urlSearch)
-      .pipe(map((data: any) => this.searchResults = data));
+      .get(`${environment.baseUrl}search?q=${this.keyword}&type=video&part=snippet`)
+      .pipe(map((data: any) => (this.searchResults = data)));
   }
 
-  getStatistics(): Observable<SearchResults> {
-    this.searchResults.items.map((item) => this.listOfId.push(item.id));
-    return this.http
-      .get(this.urlVideos)
-      // TODO: add find по id?
-      .pipe(map((data: any) => data));
+  // TODO: сделать общий метод, чтобы сначала получить статистику и
+  // переписать общий результат и потом просто подписаться в компоненте через сабскрайб?
+  getShowSearch() {
+    this.getSearch();
+    this.getStatistics();
+    return this.searchResults;
   }
 
-  getItem(id: string | null): SearchItem | undefined {
-    this.http
-      .get(this.urlSearch)
-      .pipe(map((data: any) => {
-        this.searchResults = data;
-      }));
-    return this.searchResults?.items?.find((itemFind) => itemFind.id === id);
+  // TODO: получить статистику здесь?
+  getStatistics(): void {
+    this.searchResults?.items?.map((item) => this.getItem(item.id.videoId));
+  }
+
+  getItem(id: string) {
+    this.getUrlVideo(id);
+    return this.http.get(this.urlVideos).pipe(
+      map((data: any) => {
+        this.searchItem = data.items[0];
+        this.searchItem.statistics = data.items[0].statistics;
+      }),
+    );
   }
 }

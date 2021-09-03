@@ -69,8 +69,8 @@ export class HeaderComponent implements OnInit {
       if (this.wordForSearch.length >= 3) {
         this.search.emit(true);
         this.showSearchResult();
+        this.getSearchService.getSearch().subscribe((results) => results);
       }
     });
-    this.getSearchService.getSearch();
   }
 }
