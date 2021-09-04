@@ -1,0 +1,29 @@
+<div>
+
+  <div class="form__admin">
+    <h2>Create new card</h2>
+    <mat-form-field appearance="fill" class="form__admin">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [(ngModel)]="title">
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" [(ngModel)]="description">
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label></mat-label>
+      <input name="upload" type="file" [(ngModel)]="img">
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Link video</mat-label>
+      <input matInput type="text" [(ngModel)]="videoLink">
+      <input matInput style="display:none">
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="saveCustomCard()">Create card</button>
+    </div>
+  </div>
+</div>

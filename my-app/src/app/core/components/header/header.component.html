@@ -20,6 +20,13 @@
         />
     </div>
     <div class="header__login login">
+      <a
+            routerLink="/admin"
+            mat-raised-button
+            color="primary"
+        >
+            Admin
+        </a>
         <a
             routerLink="/auth"
             *ngIf="!authService.isLoggedIn"
