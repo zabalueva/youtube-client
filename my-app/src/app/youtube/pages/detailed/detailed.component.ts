@@ -13,7 +13,7 @@ import { GetSearchService } from '../../services/get-search.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailedComponent implements OnInit {
-  public searchItem: SearchItem | undefined = {} as SearchItem;
+  public searchItem: SearchItem = {} as SearchItem;
 
   @Input() colorHighlightBorder = COLORS.DEFAULT;
 
@@ -21,12 +21,14 @@ export class DetailedComponent implements OnInit {
     public getSearchService: GetSearchService) { }
 
   ngOnInit(): void {
-    this.getItem();
+    this.getItemSearch();
   }
 
-  getItem(): void {
+  getItemSearch(): void {
     const id: string = String(this.route.snapshot.paramMap.get('id'));
-    // TODO: подписаться здесь на итоговый метод, который сразу будет включать в себя статистику?
-    /* this.getSearchService.getItem(id).subscribe((data) => this.searchItem = data.items[0]);  */
+    // TODO: в сервисе получает правильно, сюда приходит undefined
+    this.getSearchService.getItem(id).subscribe((data:any) => {
+      [this.searchItem] = data.items;
+    });
   }
 }

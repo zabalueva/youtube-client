@@ -38,13 +38,5 @@ export class SearchResultsComponent implements OnInit {
     this.getSearchService.getSearch().subscribe((showResult) => {
       this.searchResult = showResult;
     });
-    // TODO: получить статистику здесь через сервис?
-    this.searchResult?.items?.map(
-      (item) => this.getSearchService.getItem(item.id.videoId).subscribe(
-        (itemPoint) => {
-          console.log(itemPoint);
-        },
-      ),
-    );
   }
 }

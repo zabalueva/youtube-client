@@ -21,9 +21,7 @@ export class GetSearchService {
 
   public listOfId: (string | null)[] = [];
 
-  private searchID: string = 'EFfu-xqAEts';
-
-  private urlVideos: string = `${environment.baseUrl}videos?id=${this.searchID}&part=snippet,statistics`;
+  private urlVideos: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -33,11 +31,6 @@ export class GetSearchService {
 
   get getKeyWord(): string {
     return this.keyword;
-  }
-
-  getUrlVideo(id:string) {
-    this.urlVideos = `${environment.baseUrl}videos?id=${id}&part=snippet,statistics`;
-    return this.urlVideos;
   }
 
   getSearch(): Observable<SearchResults> {
@@ -60,11 +53,10 @@ export class GetSearchService {
   }
 
   getItem(id: string) {
-    this.getUrlVideo(id);
+    this.urlVideos = `${environment.baseUrl}videos?id=${id}&part=snippet,statistics`;
     return this.http.get(this.urlVideos).pipe(
       map((data: any) => {
-        this.searchItem = data.items[0];
-        this.searchItem.statistics = data.items[0].statistics;
+        this.searchResults = data;
       }),
     );
   }
