@@ -31,11 +31,8 @@ export class SearchResultsComponent implements OnInit {
     this.getResults();
   }
 
-  // TODO: добавить onChange чтобы результаты перерисовывались когда меняется сабскрайбер?
-  // Почему не меняется автоматически это же обзёрвбл?..
-
   getResults() {
-    this.getSearchService.getSearch().subscribe((showResult) => {
+    this.getSearchService.getSearchResult.subscribe((showResult) => {
       this.searchResult = showResult;
     });
   }
