@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { addCard } from 'src/app/redux/actions/card.action';
+import { selectAllCards } from 'src/app/redux/selectors/card.selector';
+import { Card, initialCardsState } from '../../models/card.model';
 
 @Component({
   selector: 'app-admin',
@@ -6,19 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  public title: string = '';
+  cards: Card[] = initialCardsState;
 
-  public description: string = '';
+  cards$ = this.store.pipe(select(selectAllCards));
 
-  public img: string = '';
-
-  public videoLink: string = '';
-
-  ngOnInit(): void {
-    this.title = '';
+  constructor(private store: Store) {
   }
 
-  saveCustomCard() {
-    console.log(this.title);
+  ngOnInit(): void {
+    this.cards$.subscribe((cards) => {
+      this.cards = cards;
+    });
+  }
+
+  saveCustomCard(card: Card) {
+    this.store.dispatch(addCard({ card }));
   }
 }
