@@ -1,0 +1,52 @@
+<div>
+
+  <div class="form__admin">
+    <h2>Create new card</h2>
+    <mat-form-field appearance="fill" class="form__admin">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" #title>
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" #description>
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label></mat-label>
+      <input name="upload" type="file" #img>
+      <input matInput style="display:none">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Link video</mat-label>
+      <input matInput type="text" #videoLink>
+      <input matInput style="display:none">
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary"
+        (click)="saveCustomCard({title: title.value, description: description.value, img: img.value, videoLink:videoLink.value, id: '1'})">Create
+        card</button>
+    </div>
+  </div>
+  <h2>Your cards</h2>
+  <div *ngFor='let card of cards'>
+    <mat-card>
+      <img mat-card-image src="{{ card.img }}" alt="Video thumbnail" />
+      <mat-card-header>
+        <mat-card-title>{{
+          card.title
+          }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{
+        card.description
+        }}
+      </mat-card-content>
+      <mat-card-content>
+        {{
+        card.videoLink
+        }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

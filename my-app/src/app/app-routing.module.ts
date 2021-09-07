@@ -4,6 +4,7 @@ import { AuthGuard } from './auth/guard/auth.guard';
 import { LoginComponent } from './auth/page/login/login.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { SearchResultsComponent } from './youtube/components/search/search-results/search-results.component';
+import { AdminComponent } from './youtube/pages/admin/admin.component';
 import { DetailedComponent } from './youtube/pages/detailed/detailed.component';
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
     component: LoginComponent,
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];

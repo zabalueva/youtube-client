@@ -11,6 +11,7 @@ import { SortByDatePipe } from './pipes/sort-by-date.pipe';
 import { SortByCountViewsPipe } from './pipes/sort-by-count-views.pipe';
 import { FilterByWordPipe } from './pipes/filter-by-word.pipe';
 import { DetailedComponent } from './pages/detailed/detailed.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DetailedComponent } from './pages/detailed/detailed.component';
     SortByCountViewsPipe,
     FilterByWordPipe,
     DetailedComponent,
+    AdminComponent,
   ],
   imports: [CommonModule, MaterialsModule, FormsModule, RouterModule],
   exports: [
