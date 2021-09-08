@@ -1,4 +1,4 @@
-<mat-card class="search-item" [appHighlightBorder]="colorHighlightBorder">
+<mat-card *ngIf="searchItem$ | async" class="search-item" [appHighlightBorder]="colorHighlightBorder">
     <img
         mat-card-image
         src="{{ searchItem?.snippet?.thumbnails?.medium?.url }}"

@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy, Component, Input, OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 import { COLORS } from 'src/app/shared/colors';
 import { SearchItem } from '../../models/searchItem.model';
 import { GetSearchService } from '../../services/get-search.service';
@@ -13,7 +14,9 @@ import { GetSearchService } from '../../services/get-search.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailedComponent implements OnInit {
-  public searchItem: SearchItem | undefined = {} as SearchItem;
+  public searchItem?: SearchItem;
+
+  searchItem$: Subject<SearchItem> = new Subject();
 
   @Input() colorHighlightBorder = COLORS.DEFAULT;
 
@@ -21,11 +24,16 @@ export class DetailedComponent implements OnInit {
     public getSearchService: GetSearchService) { }
 
   ngOnInit(): void {
-    this.getItem();
+    this.getItemSearch();
+    this.searchItem$.asObservable().subscribe((item) => {
+      this.searchItem = item;
+    });
   }
 
-  getItem(): void {
+  getItemSearch(): void {
     const id: string = String(this.route.snapshot.paramMap.get('id'));
-    this.searchItem = this.getSearchService.getItem(id);
+    this.getSearchService.getItem(id).subscribe((data:SearchItem) => {
+      this.searchItem$.next(data);
+    });
   }
 }

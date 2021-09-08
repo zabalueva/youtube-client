@@ -32,8 +32,16 @@ export class SearchResultsComponent implements OnInit {
   }
 
   getResults() {
-    this.getSearchService.getSearch().subscribe((showResult) => {
+    this.getSearchService.getSearchResult.subscribe((showResult) => {
       this.searchResult = showResult;
+    });
+  }
+
+  getStatistics() {
+    this.getSearchService.getSearchResult.subscribe((showResult) => {
+      this.searchResult.items.map((item) => {
+
+      });
     });
   }
 }
